@@ -22,10 +22,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        profile {
+            initWith debug
+        }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -46,4 +50,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    debugImplementation 'com.example.stock_overview_flutter:flutter_debug:1.0'
+    profileImplementation 'com.example.stock_overview_flutter:flutter_profile:1.0'
+    releaseImplementation 'com.example.stock_overview_flutter:flutter_release:1.0'
 }
