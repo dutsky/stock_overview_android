@@ -3,6 +3,9 @@ package com.example.stockoverview
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
+import io.flutter.plugin.common.MethodChannel
+
+lateinit var channel: MethodChannel
 
 class Application : android.app.Application() {
     private lateinit var flutterEngine : FlutterEngine
@@ -23,5 +26,6 @@ class Application : android.app.Application() {
             .getInstance()
             .put("flutter_engine_id", flutterEngine)
 
+        channel = MethodChannel(flutterEngine.dartExecutor, "stock_overview_channel_android_client")
     }
 }

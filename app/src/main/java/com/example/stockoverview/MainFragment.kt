@@ -12,7 +12,6 @@ import io.flutter.embedding.android.FlutterActivity
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class MainFragment : Fragment() {
-
     private var _binding: FragmentMainBinding? = null
 
     // This property is only valid between onCreateView and
@@ -36,6 +35,9 @@ class MainFragment : Fragment() {
             startActivity(
                 FlutterActivity.withCachedEngine("flutter_engine_id").build(binding.root.context)
             )
+
+            val stockNames = binding.editTextStockInput.text.toString()
+            channel.invokeMethod("passStockNames", stockNames)
         }
     }
 
