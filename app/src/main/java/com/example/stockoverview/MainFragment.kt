@@ -34,7 +34,7 @@ class MainFragment : Fragment() {
 
         binding.buttonFirst.setOnClickListener {
             startActivity(
-                FlutterActivity.createDefaultIntent(binding.root.context)
+                FlutterActivity.withCachedEngine("flutter_engine_id").build(binding.root.context)
             )
         }
     }
