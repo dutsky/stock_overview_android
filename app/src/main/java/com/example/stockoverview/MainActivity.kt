@@ -10,31 +10,14 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment
 import com.example.stockoverview.databinding.ActivityMainBinding
-import io.flutter.embedding.engine.FlutterEngine
-import io.flutter.embedding.engine.FlutterEngineCache
-import io.flutter.embedding.engine.dart.DartExecutor.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private lateinit var flutterEngine : FlutterEngine
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Instantiate a FlutterEngine.
-        flutterEngine = FlutterEngine(this)
-
-        // Start executing Dart code to pre-warm the FlutterEngine.
-        flutterEngine.dartExecutor.executeDartEntrypoint(
-            DartEntrypoint.createDefault()
-        )
-
-        // Cache the FlutterEngine to be used by FlutterActivity.
-        FlutterEngineCache
-            .getInstance()
-            .put("flutter_engine_id", flutterEngine)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
